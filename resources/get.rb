@@ -1,8 +1,8 @@
-property :packages, RubyType
+property :packages, Array
 
 action :install do
   execute 'apt_get_install' do
-    command "apt-get install -y #{packages}"
+		command "apt-get install -y #{packages.join ' '}"
     action :run
   end
 end
